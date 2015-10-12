@@ -1,0 +1,39 @@
+@(id:Long, funcForm:Form[Funcionario]) 
+
+
+@main("Alterar Funcionario"){
+		<div class="container">
+		<div class="header">
+		<ul class="nav nav-pills pull-right">
+			<li class="active"><a href="/index">Home</a></li>
+		</ul>
+		</div>
+		
+		@helper.form(routes.FuncionarioCrud.alterar(id)){
+		<legend>Alterar Professor</legend>
+		<fieldset>
+			@helper.inputText(funcForm("nome"), '_label -> "Nome")
+			@helper.inputText(funcForm("cpf"), '_label -> "CPF:")
+			
+			@helper.inputText(funcForm("email"), '_label -> "Email")
+			@helper.inputText(funcForm("telefone"), '_label -> "Telefone")
+
+
+			
+
+		</fieldset>
+
+        <div class="control-group">
+			<div class="actions">
+				<input type="submit" value="Gravar" class="btn btn-primary">
+				<a href="@routes.FuncionarioCrud.listaFuncionario()" class="btn btn-primary">
+					Cancelar
+				</a>
+			</div>
+		</div>	
+	}
+	
+
+
+</div>
+}

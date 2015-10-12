@@ -1,0 +1,39 @@
+
+@(id:Long, empresaForm:Form[Empresa]) 
+
+
+@main("Alterar Empresa"){
+		<div class="container">
+		<div class="header">
+		<ul class="nav nav-pills pull-right">
+			<li class="active"><a href="/index">Home</a></li>
+		</ul>
+		</div>
+		
+		@helper.form(routes.EmpresaCrud.alterar(id)){
+		<legend>Alterar Professor</legend>
+		<fieldset>
+			@helper.inputText(empresaForm("cnpj"), '_label -> "CNPJ")
+			@helper.inputText(empresaForm("inscricaoestadual"), '_label -> "Inscrição Estadual:")
+			@helper.inputText(empresaForm("razao"), '_label -> "Razão")
+			@helper.inputText(empresaForm("email"), '_label -> "Email")
+			@helper.inputText(empresaForm("telefone"), '_label -> "Telefone")
+
+			
+
+		</fieldset>
+
+        <div class="control-group">
+			<div class="actions">
+				<input type="submit" value="Gravar" class="btn btn-primary">
+				<a href="@routes.EmpresaCrud.listaEmpresa()" class="btn btn-primary">
+					Cancelar
+				</a>
+			</div>
+		</div>	
+	}
+	
+
+
+</div>
+}

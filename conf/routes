@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+#Empresa
+GET    /empresa                       controllers.EmpresaCrud.listaEmpresa()
+POST  /empresa					    controllers.EmpresaCrud.gravar()
+GET   /empresa/:id                    controllers.EmpresaCrud.detalhar(id:Long)
+POST  /empresa/:id                     controllers.EmpresaCrud.alterar(id:Long)
+POST  /empresa/:id/remover             controllers.EmpresaCrud.remover(id:Long)
+
+#Funcionario
+GET    /funcionario                       controllers.FuncionarioCrud.listaFuncionario()
+POST  /funcionario					       controllers.FuncionarioCrud.gravar()
+GET   /funcionario/:id                    controllers.FuncionarioCrud.detalhar(id:Long)
+POST  /funcionario/:id                     controllers.FuncionarioCrud.alterar(id:Long)
+POST  /funcionario/:id/remover             controllers.FuncionarioCrud.remover(id:Long)
