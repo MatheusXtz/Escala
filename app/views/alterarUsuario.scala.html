@@ -1,0 +1,38 @@
+@(id:Long, useForm:Form[Usuario]) 
+
+
+@main("Alterar Usuario"){
+		<div class="container">
+		<div class="header">
+		<ul class="nav nav-pills pull-right">
+			<li class="active"><a href="/index">Home</a></li>
+		</ul>
+		</div>
+		
+		@helper.form(routes.UsuarioCrud.alterar(id)){
+		<legend>Alterar Usuario</legend>
+		<fieldset>
+			@helper.inputText(useForm("login"), '_label -> "Login")
+			@helper.inputText(useForm("senha"), '_label -> "Senha:")
+			
+		
+
+
+			
+
+		</fieldset>
+
+        <div class="control-group">
+			<div class="actions">
+				<input type="submit" value="Gravar" class="btn btn-primary">
+				<a href="@routes.UsuarioCrud.listaUsuarios()" class="btn btn-primary">
+					Cancelar
+				</a>
+			</div>
+		</div>	
+	}
+	
+
+
+</div>
+}

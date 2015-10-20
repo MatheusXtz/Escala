@@ -18,8 +18,8 @@ public class Usuario extends Model {
 	@OneToOne 
 	private Funcionario funcionario = new Funcionario();
 	
-	public static Model.Finder<Long, Funcionario> find = new Model.Finder<Long, Funcionario>(
-			Long.class, Funcionario.class);
+	public static Model.Finder<Long, Usuario> find = new Model.Finder<Long, Usuario>(
+			Long.class, Usuario.class);
 	public Long getIdusuario() {
 		return idusuario;
 	}
@@ -39,6 +39,18 @@ public class Usuario extends Model {
 		this.senha = senha;
 	}
 	
-	
+	public long getIdFunc() {
+		return funcionario.getIdFunc();
+	}
+
+	public void setIdFunc(Long idFunc) {
+		this.funcionario.setIdFunc(idFunc);
+	}
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
 
 }

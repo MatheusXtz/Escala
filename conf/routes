@@ -21,3 +21,14 @@ POST  /funcionario					       controllers.FuncionarioCrud.gravar()
 GET   /funcionario/:id                    controllers.FuncionarioCrud.detalhar(id:Long)
 POST  /funcionario/:id                     controllers.FuncionarioCrud.alterar(id:Long)
 POST  /funcionario/:id/remover             controllers.FuncionarioCrud.remover(id:Long)
+
+#Usuario
+GET    /usuario                       controllers.UsuarioCrud.listaUsuarios()
+POST  /usuario					       controllers.UsuarioCrud.gravar()
+GET   /usuario/:id                    controllers.UsuarioCrud.detalhar(id:Long)
+POST  /usuario/:id                     controllers.UsuarioCrud.alterar(id:Long)
+POST  /usuario/:id/remover             controllers.UsuarioCrud.remover(id:Long)
+
+GET		/login					    controllers.UsuarioCrud.login()
+GET		/logar					    controllers.UsuarioCrud.logar()
+GET		/autenticar				 	controllers.UsuarioCrud.autenticar()
