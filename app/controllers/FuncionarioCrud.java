@@ -4,6 +4,7 @@ import java.util.List;
 
 import models.Empresa;
 import models.Funcionario;
+import models.Setor;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -15,19 +16,21 @@ private static final Form<Funcionario> funcionarioForm = Form.form(Funcionario.c
 	
 	public static Result listaFuncionario() {
 		List<Funcionario> funcionarios = Funcionario.find.findList();
-		return ok(views.html.funcionario.render(funcionarios));
+		List<Setor> setors = Setor.find.findList();
+		return ok(views.html.funcionario.render(funcionarios,setors));
 	}
 
-	// Salvar o Curso
+	// Salvar o Funcionario
 	public static Result gravar() {
 		Form<Funcionario> form = funcionarioForm.bindFromRequest();
-
+		String idSetor = Form.form().bindFromRequest().get("idSetor");
 		if (form.hasErrors()) {
 			flash("erro", "Foram identificados erros no cadastro!");
 			return redirect(routes.FuncionarioCrud.listaFuncionario());
 		}
+		
 		Funcionario funcionario = form.get();
-		funcionario.setIdEmpre(new Long(1));
+		funcionario.setIdSetor(Long.parseLong(idSetor));
 
 		funcionario.save();
 
@@ -40,7 +43,7 @@ private static final Form<Funcionario> funcionarioForm = Form.form(Funcionario.c
 				return ok(views.html.alterarFuncionario.render(id, empForm));
 			}
 			
-			// Alterar O curso pelo id
+			// Alterar O Funcionariop pelo id
 			public static Result alterar(Long id) {
 				Form<Funcionario> form = funcionarioForm.bindFromRequest();
 				Form.form(Funcionario.class).fill(Funcionario.find.byId(id));

@@ -1,6 +1,6 @@
-@(funcionarios: List[Funcionario], setores: List[Setor])
+@(setores: List[Setor], empresas: List[Empresa])
 
-@main("Funcionario"){
+@main("Setor"){
 
 
 		<!-- Conteudo Da Pagina -->
@@ -10,7 +10,7 @@
 			<!-- Pagina header -->
 			<div class="page-header">
 				<div class="page-title">
-					<h3>Ficha de Funcionario <small>Cadastro de Funcionario</small></h3>
+					<h3>Ficha de Setor <small>Cadastro de Setor</small></h3>
 				</div>
 
 				<div id="reportrange" class="range">
@@ -37,12 +37,12 @@
             <!-- Callout -->
 			<div class="callout callout-danger fade in">
 				<button type="button" class="close" data-dismiss="alert">×</button>
-				<h5>Formulario de Cadastro de Funcionario</h5>
-				<p>Preencha o formulario com as informações do Funconario.</p>
+				<h5>Formulario de Cadastro de Setores</h5>
+				
 			</div>
             <!-- /callout -->
       
-      @helper.form(action=routes.FuncionarioCrud.gravar()) {
+      @helper.form(action=routes.SetorCrud.gravar()) {
        <!-- Form Cadastro de Curso -->
 			<form action="#" role="form">
 	            <div class="panel panel-default">
@@ -53,7 +53,7 @@
 	                	<div class="block-inner">
 		                	<div class="block-inner">
 								<h6 class="heading-hr">
-									<i class="icon-newspaper"></i> Cadstro de Funconario <small class="display-block">Preencha as o formulario com as informações do Funconario</small>
+									<i class="icon-newspaper"></i> Cadstro de Setor <small class="display-block">Preencha as o formulario com as informações do Setor</small>
 								</h6>
 							</div>
 
@@ -61,48 +61,27 @@
 								<div class="row">
 									<div class="col-md-6">
 										<label>Nome:</label>
-		                                <input type="text" id="nome" name="nome" class="form-control" placeholder="Nome">
+		                                <input type="text" id="nomeSetor" name="nomeSetor" class="form-control" placeholder="Nome">
+									</div>
+									
+                                      <div class="col-md-6">
+										<label for="">Empresa:</label><br>
+		                                <select name="idEmpresa">
+		    	                        @for(empresa <- empresas){
+		    	                        <option value="@empresa.getIdEmpre()">@empresa.getRazao()</option>
+		    	                          }
+		    </select>
 									</div>
 
 								</div>
 							</div>
+
+						
+								</div>
 
 						</div>
 						<!-- Fim Informações Gerais-->
 
-						<div class="form-group">
-							<div class="row">
-								<div class="col-md-6">
-									<label>CPF</label>
-	                                <input type="text"  id="cpf" name="cpf" placeholder="cpf" class="required form-control">
-								</div>
-
-								<div class="col-md-6">
-									<label>Email</label>
-	                                <input type="text"  id="email" name="email"  class="required form-control">
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="row">
-								
-
-								<div class="col-md-5">
-									<label>Telefone</label>
-	                                <input type="text"  id="telefone" name="telefone" placeholder="Telefone" class="required form-control">
-								</div>
-
-								<div class="col-md-6">
-										<label for="">Setor:</label><br>
-		                                <select name="idSetor">
-		    	                        @for(set <- setores){
-		    	                        <option value="@set.getIdSetor()">@set.getNomeSetor()</option>
-		    	                          }
-		    </select>
-									</div>
-							</div>
-						</div>
                        
                         <div class="form-actions text-right">
                         	<input type="reset" value="Cancelar" class="btn btn-danger">
@@ -114,6 +93,7 @@
 			</form>
 }
 
+						
 <div class="panel panel-default">
 	                <div class="panel-heading"><h6 class="panel-title"><i class="icon-file-plus"></i> Lista de Funconarios</h6></div>
 	                <div class="panel-body">
@@ -128,29 +108,25 @@ cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td>Codigo</td>
 		<td>Nome</td>
-		<td>CPF</td>
-		<td>E-mail</td>		
-		<td>Telefone</td>
+		<td>Empresa</td>
 		<td>Editar</td>
 		<td>Remover</td>
 	</tr>
 </thead>
 <tbody>
-@for(func <- funcionarios){
+@for(set <- setores){
 <tr>
 
-<td>@func.getIdFunc()</td>
-<td>@func.getNome()</td>
-<td>@func.getCpf()</td>
-<td>@func.getEmail()</td>
-<td>@func.getTelefone()</td>
+<td>@set.getIdSetor()</td>
+<td>@set.getNomeSetor()</td>
+<td>@Empresa.find.byId(set.getIdSetor()).getRazao()</td>
 <td>
-	@helper.form(routes.FuncionarioCrud.detalhar(func.getIdFunc())){
+	@helper.form(routes.SetorCrud.detalhar(set.getIdSetor())){
 	<input type="submit" value="Editar" class="btn btn-info">
 }
 </td>
 <td>
-	@helper.form(routes.FuncionarioCrud.remover(func.getIdFunc())){
+	@helper.form(routes.SetorCrud.remover(set.getIdSetor())){
 	<input type="submit" value="Remover" class="btn btn-danger">
 }
 </td>
@@ -159,18 +135,6 @@ cellpadding="0" cellspacing="0" border="0" width="100%">
 </tbody>
 </table>
 </div>
-						</div>
-						</div>
-	   
-
- 
-
-		               </div>
-						</div>
-						</div>
-						
-						
-
 		  	<!-- Footer -->
 	 
 	        <div class="footer clearfix">

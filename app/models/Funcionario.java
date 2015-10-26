@@ -19,10 +19,8 @@ public class Funcionario extends Model {
 	private String telefone;
 	
 	
-	
-	
 	@ManyToOne
-	private Empresa empresa = new Empresa();
+	private Setor setor = new Setor();
 	
 	public static Model.Finder<Long, Funcionario> find = new Model.Finder<Long, Funcionario>(
 			Long.class, Funcionario.class);
@@ -34,12 +32,7 @@ public class Funcionario extends Model {
 	public void setIdFunc(Long idFunc) {
 		this.idFunc = idFunc;
 	}
-	public Empresa getEmpresa() {
-		return empresa;
-	}
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -66,13 +59,18 @@ public class Funcionario extends Model {
 	}
 	
 	
-	
-	public long getIdEmpre() {
-		return empresa.getIdEmpre();
+	public Setor getSetor() {
+		return setor;
+	}
+	public void setSetor(Setor setor) {
+		this.setor = setor;
+	}
+	public long getIdSetor() {
+		return setor.getIdSetor();
 	}
 
-	public void setIdEmpre(Long idEmpre) {
-		this.empresa.setIdEmpre(idEmpre);
+	public void setIdSetor(Long idSetor) {
+		this.setor.setIdSetor(idSetor);
 	}
 	
 }

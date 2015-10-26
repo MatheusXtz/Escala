@@ -29,6 +29,13 @@ GET   /usuario/:id                    controllers.UsuarioCrud.detalhar(id:Long)
 POST  /usuario/:id                     controllers.UsuarioCrud.alterar(id:Long)
 POST  /usuario/:id/remover             controllers.UsuarioCrud.remover(id:Long)
 
+#Setor
+GET    /setor                       controllers.SetorCrud.listaSetores()
+POST  /setor					       controllers.SetorCrud.gravar()
+GET   /setor/:id                    controllers.SetorCrud.detalhar(id:Long)
+POST  /setor/:id                     controllers.SetorCrud.alterar(id:Long)
+POST  /setor/:id/remover             controllers.SetorCrud.remover(id:Long)
+
 GET		/login					    controllers.UsuarioCrud.login()
 GET		/logar					    controllers.UsuarioCrud.logar()
 GET		/autenticar				 	controllers.UsuarioCrud.autenticar()

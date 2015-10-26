@@ -18,9 +18,11 @@ public class Empresa extends Model {
 	String razao;
 	String email;
 	String telefone;
+	String logradouro;
+	String cidade;
+	String estado;
+	String cep;
 
-	@OneToOne 
-	private Endereco endereco = new Endereco();
 	
 	public static Model.Finder<Long, Empresa> find = new Model.Finder<Long, Empresa>(
 			Long.class, Empresa.class);
@@ -31,12 +33,7 @@ public class Empresa extends Model {
 	public void setIdEmpre(Long idEmpre) {
 		this.idEmpre = idEmpre;
 	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+
 	
 
 
@@ -70,14 +67,31 @@ public String getCnpj() {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	public String getLogradouro() {
+		return logradouro;
+	}
+	public void setLogradouro(String lagradouro) {
+		this.logradouro = lagradouro;
+	}
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 	
-	public long getIdEnde() {
-		return endereco.getIdEnde();
-	}
-
-	public void setIdEnde(Long idEnde) {
-		this.endereco.setIdEnde(idEnde);
-	}
-
+	
 }
 

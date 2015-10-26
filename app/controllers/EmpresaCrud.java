@@ -25,7 +25,7 @@ public class EmpresaCrud extends Controller {
 			return redirect(routes.EmpresaCrud.listaEmpresa());
 		}
 		Empresa empresa = form.get();
-	empresa.setIdEnde(new Long(1));
+	
 		empresa.save();
 
 		flash("sucesso", "Dados Gravados com sucesso");

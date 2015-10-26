@@ -1,0 +1,42 @@
+@(id:Long, setForm:Form[Setor], empre: List[Empresa])) 
+
+
+@main("Alterar Setor"){
+		<div class="container">
+		<div class="header">
+		<ul class="nav nav-pills pull-right">
+			<li class="active"><a href="/index">Home</a></li>
+		</ul>
+		</div>
+		
+		@helper.form(routes.SetorCrud.alterar(id)){
+		<legend>Alterar Setor</legend>
+		<fieldset>
+			@helper.inputText(setForm("nome"), '_label -> "Nome")
+			
+			<select name="idEmpresa">
+		    	@for(emp <- empre){
+		    	<option value="@emp.getIdEmpre()">@emp.getRazao()</option>
+		    	}
+		    </select>
+		
+
+
+			
+
+		</fieldset>
+
+        <div class="control-group">
+			<div class="actions">
+				<input type="submit" value="Gravar" class="btn btn-primary">
+				<a href="@routes.UsuarioCrud.listaUsuarios()" class="btn btn-primary">
+					Cancelar
+				</a>
+			</div>
+		</div>	
+	}
+	
+
+
+</div>
+}
