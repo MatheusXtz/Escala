@@ -1,10 +1,9 @@
-@(empresas: List[Empresa])
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Empresa</title>
+  <title>SysEscala-Web</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -399,15 +398,12 @@
 
     <div class="page-header">
         <div class="page-title">
-          <h3>Cadastro de Empresa</h3>
+          <h3>Ficha de Setor <small>Cadastro de Setor</small></h3>
         </div>
 
       </div>
 
-
- @helper.form(action=routes.EmpresaCrud.gravar()) {
-       <!-- Form Cadastro de Curso -->
-      <form action="#" role="form">
+<form action="#" role="form">
               <div class="panel panel-default">
                   <div class="panel-heading"><h6 class="panel-title"><i class="icon-file-plus"></i> Cadastro</h6></div>
                   <div class="panel-body">
@@ -416,79 +412,29 @@
                     <div class="block-inner">
                       <div class="block-inner">
                 <h6 class="heading-hr">
-                  <i class="icon-newspaper"></i> Cadstro de Curso <small class="display-block">Preencha as o formulario com as informações do curso</small>
+                  <i class="icon-newspaper"></i> <h4>Cadastro de Setor </h4><h5>Preencha as o formulario com as informações do Setor</h5>
                 </h6>
               </div>
 
               <div class="form-group">
                 <div class="row">
-                  <div class="col-md-4">
-                    <label>CNPJ:</label>
-                                    <input type="text" id="cnpj" name="cnpj" class="form-control" placeholder="CNPJ da empresa">
+                  <div class="col-md-5">
+                    <label>Nome:</label>
+                                    <input type="text" id="nomeSetor" name="nomeSetor" class="form-control" placeholder="Nome">
                   </div>
+                  
+                    
 
                 </div>
               </div>
+
+            
+                </div>
 
             </div>
             <!-- Fim Informações Gerais-->
 
-            <div class="form-group">
-              <div class="row">
-                <div class="col-md-5">
-                  <label>Inscrição Estadual</label>
-                                  <input type="text"  id="inscricaoestadual" name="inscricaoestadual" placeholder="inscrição estadual" class="required form-control">
-                </div>
-
-                <div class="col-md-4">
-                  <label>Razão Social</label>
-                                  <input type="text"  id="razao" name="razao" placeholder="Razão Social" class="required form-control">
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="row">
-                <div class="col-md-5">
-                  <label>Email</label>
-                                  <input type="text"  id="email" name="Email" placeholder="Email" class="required form-control">
-                </div>
-
-                <div class="col-md-4">
-                  <label>Telefone</label>
-                                  <input type="text"  id="telefone" name="telefone" placeholder="Telefone" class="required form-control">
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="row">
-                <div class="col-md-5">
-                  <label>Logradouro</label>
-                                  <input type="text"  id="logradouro" name="logradouro" placeholder="Rua" class="required form-control">
-                </div>
-
-                <div class="col-md-4">
-                  <label>Cidade</label>
-                                  <input type="text"  id="cidade" name="cidade"  class="required form-control">
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-md-5">
-                  <label>Estado</label>
-                                  <input type="text"  id="estado" name="estado" placeholder="Rua" class="required form-control">
-                </div>
-
-                <div class="col-md-4">
-                  <label>Cep</label>
-                                  <input Cep="text"  id="cep" name="cep" class="required form-control">
-                </div>
-              </div>
-            </div>
-                       
-                        
+                     
                          <div class="form-actions text-right">
         <input type="reset" value="Cancelar" class="btn btn-danger">
 
@@ -498,77 +444,10 @@
         <br>
   
          <br>                 
-             </div> 
-
+             </div>           
           </div>
         </div>
       </form>
-}
-
-
- <div class="panel panel-default">
-                  <div class="panel-heading"><h6 class="panel-title"><i class="icon-file-plus"></i> Lista de Empresas</h6></div>
-                  <div class="panel-body">
-
-                    <!-- Informações Gerais -->
-                    <div class="block-inner">
-
-
-<table class="table table-striped table-bordered" id="example"
-cellpadding="0" cellspacing="0" border="0" width="100%">
-<thead>
-  <tr>
-    <td>Codigo</td>
-    <td>CNPJ</td>
-    <td>Inscrição Estadual</td>
-    <td>Razão Social</td>
-    <td>E-mail</td>   
-    <td>Telefone</td>
-    <td>Logradouro</td>   
-    <td>Estado</td>
-    <td>Editar</td>
-    <td>Remover</td>
-  </tr>
-</thead>
-<tbody>
-@for(empre <- empresas){
-<tr>
-
-<td>@empre.getIdEmpre()</td>
-<td>@empre.getCnpj()</td>
-<td>@empre.getInscricaoestadual()</td>
-<td>@empre.getRazao()</td>
-<td>@empre.getEmail()</td>
-<td>@empre.getTelefone()</td>
-<td>@empre.getLogradouro()</td>
-<td>@empre.getEstado()</td>
-<td>
-  @helper.form(routes.EmpresaCrud.detalhar(empre.getIdEmpre())){
-  <input type="submit" value="Editar" class="btn btn-info">
-}
-</td>
-<td>
-  @helper.form(routes.EmpresaCrud.remover(empre.getIdEmpre())){
-  <input type="submit" value="Remover" class="btn btn-danger">
-}
-</td>
-</tr>
-}
-</tbody>
-</table>
-</div>
-            </div>
-            </div>
-     
-
- 
-
-                   </div>
-            </div>
-            </div>
-
-
-                     
 </div>
       </div>
 
