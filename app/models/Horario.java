@@ -3,12 +3,18 @@ package models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import play.api.mvc.AnyContent;
+import play.api.mvc.Action;
+import play.mvc.*;
 import play.db.ebean.Model;
 
 @Entity
 public class Horario extends Model {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue
 	private Long idHorario;
 	private String horaInicial;

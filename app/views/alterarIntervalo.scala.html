@@ -1,0 +1,36 @@
+@(id:Long, setForm:Form[Intervalo]) 
+
+
+@main("Alterar Setor"){
+		<div class="container">
+		<div class="header">
+		<ul class="nav nav-pills pull-right">
+			<li class="active"><a href="/">Home</a></li>
+		</ul>
+		</div>
+		
+		@helper.form(routes.IntervaloCrud.alterar(id)){
+		<legend>Alterar Horario</legend>
+		<fieldset>
+			@helper.inputText(setForm("horaInicial"), '_label -> "Hora Inicial")
+			@helper.inputText(setForm("horaFinal"), '_label -> "Hora Final")
+			
+	
+		
+
+		</fieldset>
+
+        <div class="control-group">
+			<div class="actions">
+				<input type="submit" value="Gravar" class="btn btn-primary">
+				<a href="@routes.IntervaloCrud.listaIntervalo()" class="btn btn-primary">
+					Cancelar
+				</a>
+			</div>
+		</div>	
+	}
+	
+
+
+</div>
+}

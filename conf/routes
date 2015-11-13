@@ -37,6 +37,20 @@ GET   /setor/:id                    controllers.SetorCrud.detalhar(id:Long)
 POST  /setor/:id                     controllers.SetorCrud.alterar(id:Long)
 POST  /setor/:id/remover             controllers.SetorCrud.remover(id:Long)
 
+#Horario
+GET    /horario                       controllers.HorarioCrud.listaHorario()
+POST  /horario					       controllers.HorarioCrud.gravar()
+GET   /horario/:id                    controllers.HorarioCrud.detalhar(id:Long)
+POST  /horario/:id                     controllers.HorarioCrud.alterar(id:Long)
+POST  /horario/:id/remover             controllers.HorarioCrud.remover(id:Long)
+
+#Intervalo
+GET    /intervalo                       controllers.IntervaloCrud.listaIntervalo()
+POST  /intervalo					       controllers.IntervaloCrud.gravar()
+GET   /intervalo/:id                    controllers.IntervaloCrud.detalhar(id:Long)
+POST  /intervalo/:id                     controllers.IntervaloCrud.alterar(id:Long)
+POST  /intervalo/:id/remover             controllers.IntervaloCrud.remover(id:Long)
+
 GET		/login					    controllers.UsuarioCrud.login()
 GET		/logar					    controllers.UsuarioCrud.logar()
 GET		/autenticar				 	controllers.UsuarioCrud.autenticar()
