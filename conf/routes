@@ -3,8 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
-GET     /teste                           controllers.Application.teste()
+GET     /home                          controllers.Application.index()
+GET     /teste                         controllers.Application.teste()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
@@ -52,5 +52,5 @@ POST  /intervalo/:id                     controllers.IntervaloCrud.alterar(id:Lo
 POST  /intervalo/:id/remover             controllers.IntervaloCrud.remover(id:Long)
 
 GET		/login					    controllers.UsuarioCrud.login()
-GET		/logar					    controllers.UsuarioCrud.logar()
+GET		/          				    controllers.UsuarioCrud.logar()
 GET		/autenticar				 	controllers.UsuarioCrud.autenticar()

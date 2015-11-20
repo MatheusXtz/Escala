@@ -73,7 +73,6 @@ create table usuario (
   idusuario                 bigint auto_increment not null,
   login                     varchar(255),
   senha                     varchar(255),
-  funcionario_id_func       bigint,
   constraint pk_usuario primary key (idusuario))
 ;
 
@@ -89,8 +88,6 @@ alter table turno add constraint fk_turno_horario_5 foreign key (horario_id_hora
 create index ix_turno_horario_5 on turno (horario_id_horario);
 alter table turno add constraint fk_turno_intervalo_6 foreign key (intervalo_id_intervalo) references intervalo (id_intervalo) on delete restrict on update restrict;
 create index ix_turno_intervalo_6 on turno (intervalo_id_intervalo);
-alter table usuario add constraint fk_usuario_funcionario_7 foreign key (funcionario_id_func) references funcionario (id_func) on delete restrict on update restrict;
-create index ix_usuario_funcionario_7 on usuario (funcionario_id_func);
 
 
 

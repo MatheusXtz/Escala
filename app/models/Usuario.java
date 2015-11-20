@@ -15,8 +15,8 @@ public class Usuario extends Model {
 	String login;
 	String senha;
 	
-	@OneToOne 
-	private Funcionario funcionario = new Funcionario();
+//	@OneToOne 
+//	private Funcionario funcionario = new Funcionario();
 	
 	public static Model.Finder<Long, Usuario> find = new Model.Finder<Long, Usuario>(
 			Long.class, Usuario.class);
@@ -38,19 +38,19 @@ public class Usuario extends Model {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	public long getIdFunc() {
-		return funcionario.getIdFunc();
-	}
-
-	public void setIdFunc(Long idFunc) {
-		this.funcionario.setIdFunc(idFunc);
-	}
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
+//	
+//	public long getIdFunc() {
+//		return funcionario.getIdFunc();
+//	}
+//
+//	public void setIdFunc(Long idFunc) {
+//		this.funcionario.setIdFunc(idFunc);
+//	}
+//	public Funcionario getFuncionario() {
+//		return funcionario;
+//	}
+//	public void setFuncionario(Funcionario funcionario) {
+//		this.funcionario = funcionario;
+//	}
 
 }

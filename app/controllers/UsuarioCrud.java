@@ -32,7 +32,7 @@ private static final Form<Usuario> usuaForm = Form.form(Usuario.class);
 		}
 		Usuario usuario = form.get();
 		
-        usuario.setIdFunc(new Long(1));
+       // usuario.setIdFunc(new Long(1));
 		usuario.save();
 
 		flash("sucesso", "Dados Gravados com sucesso");
