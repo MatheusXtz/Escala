@@ -52,6 +52,9 @@ GET   /intervalo/:id                    controllers.IntervaloCrud.detalhar(id:Lo
 POST  /intervalo/:id                     controllers.IntervaloCrud.alterar(id:Long)
 POST  /intervalo/:id/remover             controllers.IntervaloCrud.remover(id:Long)
 
+#Escala
+GET    /escala                       controllers.EscalaCrud.listaEscala()
+
 GET		/login					    controllers.UsuarioCrud.login()
 GET		/          				    controllers.UsuarioCrud.logar()
 GET		/autenticar				 	controllers.UsuarioCrud.autenticar()

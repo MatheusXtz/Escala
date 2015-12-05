@@ -1,10 +1,13 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import models.Bloco;
 import play.db.ebean.Model;
 
 @Entity
@@ -17,7 +20,7 @@ public class Funcionario extends Model {
 	private String nome;
 	private String email;
 	private String telefone;
-	
+	public List<Bloco> blocos;
 	
 	@ManyToOne
 	private Setor setor = new Setor();
@@ -73,4 +76,13 @@ public class Funcionario extends Model {
 		this.setor.setIdSetor(idSetor);
 	}
 	
+	public Integer horasDeTrabalho() {
+		Integer horas = 0;
+		
+		for (Bloco b : blocos) {
+			horas = b.getHorasTrabalho();
+		}
+		
+		return horas;
+	}
 }
